@@ -20,7 +20,11 @@ const Join = () => {
   };
 
   const postJoin = () => {
-    if (userData.id === "" || userData.name === "" || userData.pw === "") {
+    if (
+      userData.account_id === "" ||
+      userData.name === "" ||
+      userData.password === ""
+    ) {
       window.alert("정보를 입력해주시기 바랍니다.");
       return;
     }
@@ -28,7 +32,7 @@ const Join = () => {
     usePostJoinMutation.mutateAsync(userData, {
       onSuccess: () => {
         window.alert("회원가입 성공");
-        console.log(1);
+        navigate("/login");
       },
       onError: () => {
         window.alert("회원가입 오류 다시 시도 해 주세요.");

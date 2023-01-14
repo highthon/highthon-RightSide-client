@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import authRepository from "../../../repository/auth/auth.repository";
+import cookie from "../../../lib/cookie/cookie";
+import { usePostLogin } from "../../../query/auth/posrLogin.query";
 import * as LoginStyle from "./Login.style";
 
 const Login = () => {
@@ -9,6 +10,7 @@ const Login = () => {
     password: "",
   });
   const navigate = useNavigate();
+  const { usePostLoginMutation } = usePostLogin();
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -16,15 +18,21 @@ const Login = () => {
   };
 
   const postLogin = () => {
-    try {
-      if (userData.id === "" || userData.name === "" || userData.pw === "") {
-        window.alert("정보를 입력해주시기 바랍니다.");
-        return;
-      }
-      const { data } = authRepository.PostLogin(userData);
-    } catch (error) {
-      window.alert("로그인 오류 다시 시도 해 주세요.");
+    if (userData.account_id === "" || userData.password === "") {
+      window.alert("정보를 입력해주시기 바랍니다.");
+      return;
     }
+
+    usePostLoginMutation.mutateAsync(userData, {
+      onSuccess: (token) => {
+        window.alert("로그인 성공");
+        cookie.setCookie("access-token", token);
+        navigate("/");
+      },
+      onError: () => {
+        window.alert("로그인 오류 다시 시도 해 주세요.");
+      },
+    });
   };
   return (
     <LoginStyle.LoginContainer>
@@ -32,7 +40,7 @@ const Login = () => {
         <LoginStyle.ModalTitle>
           슬로건 슬로건 슬로건, Right Side
         </LoginStyle.ModalTitle>
-        <LoginStyle.MoveLink onClick={() => navigate("/")}>
+        <LoginStyle.MoveLink onClick={() => navigate("/join")}>
           회원 가입 하러 가기
         </LoginStyle.MoveLink>
         <LoginStyle.InputContainer>

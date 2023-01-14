@@ -1,7 +1,10 @@
 import * as S from "./NoticeBoard.style.js";
 import NoticeList from "../../NoticeList";
 import { Link } from "react-router-dom";
+import { useGetNoticeList } from "../../../../query/notice/getNoticeList.query.js";
 const NotBuyNotice = () => {
+  const data = useGetNoticeList();
+  console.log(data);
   return (
     <>
       {/* 게시판 */}
@@ -21,24 +24,18 @@ const NotBuyNotice = () => {
       </S.NoticeHeader>
       {/* 게시판 프레임 */}
       <S.NoticeFrame>
-        <NoticeList
-          title="제목 제목 제목 제목"
-          writer="김석진"
-          date="2023-01-14"
-          participant="1,643,248"
-        />
-        <NoticeList
-          title="제목 제목 제목 제목"
-          writer="김석진"
-          date="2023-01-14"
-          participant="1,643,248"
-        />
-        <NoticeList
-          title="제목 제목 제목 제목"
-          writer="김석진"
-          date="2023-01-14"
-          participant="1,643,248"
-        />
+        {/* {data &&
+          data.map((item) => {
+            console.log(item);
+            return (
+              <NoticeList
+              onClick={()=> window.open(`${link}`)}
+                title={item.title}
+                writer={item.user.user_name}
+                participant={item.join_count}
+              />
+            );
+          })} */}
       </S.NoticeFrame>
     </>
   );
