@@ -1,9 +1,11 @@
 import * as S from "./NoticeBoard.style.js";
 import NoticeList from "../../NoticeList";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useGetNoticeList } from "../../../../query/notice/getNoticeList.query.js";
 import customAxios from "../../../../lib/axios/customAxios.js";
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { noticePostId } from "../../../../store/reducer";
 const NotBuyNotice = () => {
   const [noticeData, setNoticeData] = useState();
   const { pathname } = useLocation();
@@ -33,10 +35,11 @@ const NotBuyNotice = () => {
       {/* 게시판 프레임 */}
       <S.NoticeFrame>
         {noticeData &&
-          noticeData.map((item) => {
+          noticeData.map((item, idx) => {
             return (
               <NoticeList
-                onClick={() => window.open(`${item.link}`)}
+                key={idx}
+                post_id={item.post_id}
                 title={item.title}
                 writer={item.user.user_name}
                 participant={item.join_count}

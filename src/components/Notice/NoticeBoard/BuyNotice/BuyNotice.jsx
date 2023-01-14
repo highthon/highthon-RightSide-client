@@ -1,8 +1,18 @@
 import * as S from "./BuyNotice.style.js";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import NoticeList from "../../NoticeList/NoticeList.jsx";
+import { useState } from "react";
+import customAxios from "../../../../lib/axios/customAxios.js";
 
 const BuyNotice = () => {
+  const [noticeData, setNoticeData] = useState();
+  const { pathname } = useLocation();
+  (async () => {
+    const { data } = await customAxios.get(
+      `/post/tag?tag=${pathname === "/" ? "BOYCOTT" : "BUY"}`
+    );
+    setNoticeData(data.post_list);
+  })();
   return (
     <>
       {/* 게시판 */}
@@ -22,18 +32,18 @@ const BuyNotice = () => {
       </S.NoticeHeader>
       {/* 게시판 프레임 */}
       <S.NoticeFrame>
-        {/* {data &&
-          data.map((item) => {
-            console.log(item);
+        {noticeData &&
+          noticeData.map((item, idx) => {
             return (
               <NoticeList
-              onClick={()=> window.open(`${link}`)}
+                key={idx}
+                onClick={() => window.open(`${item.link}`)}
                 title={item.title}
                 writer={item.user.user_name}
                 participant={item.join_count}
               />
             );
-          })} */}
+          })}
       </S.NoticeFrame>
     </>
   );

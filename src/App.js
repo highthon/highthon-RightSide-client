@@ -6,7 +6,6 @@ function App() {
     <AppContainer>
       <Router />
     </AppContainer>
-
   );
 }
 

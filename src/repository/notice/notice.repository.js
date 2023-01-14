@@ -9,10 +9,6 @@ class noticeRepository {
   PostEditNotice(postData, postId) {
     const { data } = customAxios.patch(`/post/${postId}`, postData);
   }
-
-  // GetNotice(tag) {
-  //   return data;
-  // }
 }
 
 export default new noticeRepository();

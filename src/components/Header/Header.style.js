@@ -29,5 +29,9 @@ export const Login = styled.button`
   font-size: 14px;
   line-height: 24px;
   color: #000;
+  padding: 10px 20px;
+  background-color: ${P.palette.primaryLight};
+  color: #fff;
+  border-radius: 30px;
   outline: none;
 `;
