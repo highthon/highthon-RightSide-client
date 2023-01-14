@@ -1,11 +1,15 @@
 import { useState } from "react";
 import * as S from "./NoticeWrite.style.js";
 import noticeRepository from "../../../repository/notice/notice.repository";
+import { usePostWrite } from "../../../query/notice/postWrite.query";
+import { useNavigate } from "react-router-dom";
 
 const NoticeWrite = () => {
+  const { usePostWriteMutation } = usePostWrite();
+  const navigate = useNavigate();
   const [noticeData, setNoticeData] = useState({
     title: "",
-    tags: "",
+    tag: "",
     content: "",
     link: "",
   });
@@ -16,20 +20,15 @@ const NoticeWrite = () => {
   };
 
   const postSubmit = () => {
-    try {
-      if (
-        noticeData.title === "" ||
-        noticeData.tags === "" ||
-        noticeData.content === "" ||
-        noticeData.link === ""
-      ) {
-        window.alert("입력안한 정보를 입력해주시기 바랍니다.");
-        return;
-      }
-      const { data } = noticeRepository.PostWriteNotice(noticeData);
-    } catch (error) {
-      window.alert("오류");
-    }
+    usePostWriteMutation.mutateAsync(noticeData, {
+      onSuccess: () => {
+        window.alert("게시물 생성 성공");
+        navigate("/");
+      },
+      onError: () => {
+        window.alert("게시물 생성 오류 다시 시도 해 주세요.");
+      },
+    });
   };
 
   return (
@@ -48,6 +47,24 @@ const NoticeWrite = () => {
               height="54px"
               onChange={onChange}
               placeholder="제목을 입력해주세요."
+            />
+          </S.InputFrame>
+          <S.InputFrame>
+            <S.Title>태그</S.Title>
+            <S.TitleInput
+              name="tag"
+              height="54px"
+              onChange={onChange}
+              placeholder="BOYCOTT, BUY를 입력해주세요."
+            />
+          </S.InputFrame>
+          <S.InputFrame>
+            <S.Title>링크</S.Title>
+            <S.TitleInput
+              name="link"
+              height="54px"
+              onChange={onChange}
+              placeholder="링크를 입력해주세요."
             />
           </S.InputFrame>
           <S.InputFrame>
