@@ -21,12 +21,13 @@ const NoticeWrite = () => {
 
   const postSubmit = () => {
     usePostWriteMutation.mutateAsync(noticeData, {
-      onSuccess: () => {
+      onSuccess: (data) => {
         window.alert("게시물 생성 성공");
         navigate("/");
       },
-      onError: () => {
+      onError: (e) => {
         window.alert("게시물 생성 오류 다시 시도 해 주세요.");
+        console.log(e);
       },
     });
   };

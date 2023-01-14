@@ -1,12 +1,13 @@
-import axios from "axios";
+import customAxios from "../../lib/axios/customAxios";
 
 class noticeRepository {
   PostWriteNotice(postData) {
-    const { data } = axios.post("/post", postData);
+    const { data } = customAxios.post("/post", postData);
+    return data;
   }
 
   PostEditNotice(postData, postId) {
-    const { data } = axios.patch(`/post/${postId}`, postData);
+    const { data } = customAxios.patch(`/post/${postId}`, postData);
   }
 }
 
