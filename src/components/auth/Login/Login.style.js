@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
+export const LoginContainer = styled.div``;
+
 // export const Style = styled.div`
-//  display: flex;
 // `;
-//
+// export const Style = styled.div`
+// `;
+// export const Style = styled.div`
+// `;

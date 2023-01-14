@@ -23,7 +23,7 @@ const Join = () => {
       }
       const { data } = authRepository.PostJoinData(userData);
     } catch (error) {
-      window.alert("로그인 오류 다시 시도 해 주세요.");
+      window.alert("회원가입 오류 다시 시도 해 주세요.");
     }
   };
   return (
@@ -36,7 +36,7 @@ const Join = () => {
         onChange={onChange}
       />
       <JoinStyle.UserJoinSubmitBtn onClick={postJoin}>
-        로그인
+        회원가입
       </JoinStyle.UserJoinSubmitBtn>
     </JoinStyle.JoinContainer>
   );
