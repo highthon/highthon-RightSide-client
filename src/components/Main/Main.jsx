@@ -41,7 +41,7 @@ const Main = () => {
         </S.TabBar>
         {/* 게시판 */}
         <S.MiddleFrame>
-          <S.Title>자유 게시판</S.Title>
+          <S.Title>불매 운동에 참여해 보세요!</S.Title>
           <S.AddBtn>글쓰기</S.AddBtn>
         </S.MiddleFrame>
         <S.NoticeHeader>

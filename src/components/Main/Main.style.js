@@ -87,7 +87,6 @@ export const AddBtn = styled.button`
 
 export const Title = styled.div`
   width: 100%;
-  text-align: center;
   font-weight: 700;
   font-size: 20px;
   line-height: 36px;
