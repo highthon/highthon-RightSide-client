@@ -10,6 +10,7 @@ import NotBuyNotice from "../Notice/NoticeBoard/NotBuyNotice";
 import BuyNotice from "../Notice/NoticeBoard/BuyNotice";
 
 import NoticeWrite from "../Notice/NoticeWrite";
+import { useGetNoticeList } from "../../query/notice/getNoticeList.query.js";
 
 const Main = () => {
   const [tabClick, setTabClick] = useState(true);

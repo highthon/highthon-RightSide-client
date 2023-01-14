@@ -53,7 +53,6 @@ export const TabBar = styled.div`
 
 export const TabBtn = styled.button`
   text-align: center;
-
   width: 50%;
   height: 60.5px;
 

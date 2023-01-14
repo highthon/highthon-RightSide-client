@@ -7,7 +7,7 @@ const customAxios = axios.create({
   baseURL: config.SERVER,
   headers: {
     "Access-Control-Allow-Origin": "*",
-    [REQUEST_TOKEN_KEY]: `Bearer ${cookie.getCookie("access-token")}`,
+    // [REQUEST_TOKEN_KEY]: `Bearer ${cookie.getCookie("access-token")}`,
   },
 });
 
