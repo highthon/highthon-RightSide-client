@@ -1,8 +1,10 @@
 import * as S from "./NoticeEdit.style.js";
 import React, { useState } from "react";
 import noticeRepository from "../../../repository/notice/notice.repository.js";
-
+import { usePostEdit } from "../../../query/notice/postEdit.query";
 const NoticeEdit = ({ postId }) => {
+  const { usePostEditMutation } = usePostEdit();
+
   const [noticeData, setNoticeData] = useState({
     title: "",
     tags: "",
@@ -16,20 +18,14 @@ const NoticeEdit = ({ postId }) => {
   };
 
   const postSubmit = (postId) => {
-    try {
-      if (
-        noticeData.title === "" ||
-        noticeData.tags === "" ||
-        noticeData.content === "" ||
-        noticeData.link === ""
-      ) {
-        window.alert("입력안한 정보를 입력해주시기 바랍니다.");
-        return;
-      }
-      const { data } = noticeRepository.PostEditNotice(noticeData, postId);
-    } catch (error) {
-      window.alert("오류");
-    }
+    usePostEditMutation.mutateAsync(noticeData, {
+      onSuccess: () => {
+        window.alert("게시물 수정 성공");
+      },
+      onError: () => {
+        window.alert("게시물 수정 오류 다시 시도 해 주세요.");
+      },
+    });
   };
   return (
     <S.NoticeEdit>

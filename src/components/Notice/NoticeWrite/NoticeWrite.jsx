@@ -9,7 +9,7 @@ const NoticeWrite = () => {
   const navigate = useNavigate();
   const [noticeData, setNoticeData] = useState({
     title: "",
-    tags: "",
+    tag: "",
     content: "",
     link: "",
   });
@@ -21,13 +21,12 @@ const NoticeWrite = () => {
 
   const postSubmit = () => {
     usePostWriteMutation.mutateAsync(noticeData, {
-      onSuccess: (data) => {
+      onSuccess: () => {
         window.alert("게시물 생성 성공");
         navigate("/");
       },
-      onError: (e) => {
+      onError: () => {
         window.alert("게시물 생성 오류 다시 시도 해 주세요.");
-        console.log(e);
       },
     });
   };
@@ -53,7 +52,7 @@ const NoticeWrite = () => {
           <S.InputFrame>
             <S.Title>태그</S.Title>
             <S.TitleInput
-              name="tags"
+              name="tag"
               height="54px"
               onChange={onChange}
               placeholder="BOYCOTT, BUY를 입력해주세요."
