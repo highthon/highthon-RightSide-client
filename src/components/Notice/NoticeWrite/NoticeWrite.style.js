@@ -3,6 +3,7 @@ import styled from "styled-components";
 import * as P from "../../../shared/styles/palette.style";
 
 export const NoticeWrite = styled.div`
+  position: relative;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -10,8 +11,10 @@ export const NoticeWrite = styled.div`
 `;
 
 export const NoticeModal = styled.div`
+  position: absolute;
+  top: 100px;
   width: 1180px;
-  height: 708px;
+  height: 1008px;
   border-radius: 16px;
   background-color: #fff;
   border: 1px solid ${P.palette.hr};
