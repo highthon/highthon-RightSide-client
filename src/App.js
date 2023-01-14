@@ -1,12 +1,7 @@
-import { ToastContainer } from "react-toastify";
-import Join from "./components/auth/Join/Join";
+import Router from "./components/Router";
 
 function App() {
-  return (
-    <>
-      <Join />
-    </>
-  );
+  return <Router />;
 }
 
 export default App;
