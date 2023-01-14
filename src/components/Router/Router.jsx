@@ -1,9 +1,8 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Join from "../auth/Join/Join";
 import Login from "../auth/Login/Login";
-import { BrowserRouter } from "react-router-dom";
 
-const index = () => {
+const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -14,4 +13,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Router;

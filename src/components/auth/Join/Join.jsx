@@ -1,9 +1,11 @@
 import * as JoinStyle from "./Join.style";
 import { useState } from "react";
 import authRepository from "../../../repository/auth/auth.repository";
+import { usePostJoin } from "../../../query/auth/postJoin.query";
 import { toast } from "react-toastify";
 
 const Join = () => {
+  const { usePostJoinMutation } = usePostJoin();
   const [userData, setUserData] = useState({
     account_id: "",
     password: "",
@@ -16,15 +18,19 @@ const Join = () => {
   };
 
   const postJoin = () => {
-    try {
-      if (userData.id === "" || userData.name === "" || userData.pw === "") {
-        window.alert("정보를 입력해주시기 바랍니다.");
-        return;
-      }
-      const { data } = authRepository.PostJoinData(userData);
-    } catch (error) {
-      window.alert("회원가입 오류 다시 시도 해 주세요.");
+    if (userData.id === "" || userData.name === "" || userData.pw === "") {
+      window.alert("정보를 입력해주시기 바랍니다.");
+      return;
     }
+    usePostJoinMutation.mutateAsync(userData, {
+      onSuccess: () => {
+        const { data } = authRepository.PostJoinData(userData);
+        window.alert("");
+      },
+      onError: () => {
+        window.alert("회원가입 오류 다시 시도 해 주세요.");
+      },
+    });
   };
   return (
     <JoinStyle.JoinContainer>
