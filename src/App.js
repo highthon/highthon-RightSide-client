@@ -1,5 +1,12 @@
+import { ToastContainer } from "react-toastify";
+import Join from "./components/auth/Join/Join";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <Join />
+    </>
+  );
 }
 
 export default App;
