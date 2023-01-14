@@ -2,7 +2,7 @@ import * as S from "./NoticeEdit.style.js";
 import React, { useState } from "react";
 import noticeRepository from "../../../repository/notice/notice.repository.js";
 
-const NoticeEdit = () => {
+const NoticeEdit = ({ postId }) => {
   const [noticeData, setNoticeData] = useState({
     title: "",
     tags: "",
@@ -53,7 +53,7 @@ const NoticeEdit = () => {
         onChange={onChange}
         placeholder="링크를 입력해주세요"
       />
-      <S.SubmitBtn onClick={postSubmit}>수정하기</S.SubmitBtn>
+      <S.SubmitBtn onClick={() => postSubmit(postId)}>수정하기</S.SubmitBtn>
     </S.NoticeEdit>
   );
 };
