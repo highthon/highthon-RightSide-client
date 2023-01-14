@@ -40,7 +40,10 @@ const Main = () => {
           </S.TabBtn>
         </S.TabBar>
         {/* 게시판 */}
-        <S.Title>자유 게시판</S.Title>
+        <S.MiddleFrame>
+          <S.Title>자유 게시판</S.Title>
+          <S.AddBtn>글쓰기</S.AddBtn>
+        </S.MiddleFrame>
         <S.NoticeHeader>
           <S.NoticeItem>제목</S.NoticeItem>
           <S.NoticeInner>

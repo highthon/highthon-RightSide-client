@@ -63,9 +63,27 @@ export const TabBtn = styled.button`
 
   background: ${(props) => props.backGroundColor};
   border-radius: ${(props) => props.borderRadius};
+  outline: none;
 `;
 
 // notice board
+
+export const MiddleFrame = styled.div`
+  display: flex;
+  align-items: center;
+  width: 1180px;
+`;
+
+export const AddBtn = styled.button`
+  width: 100px;
+  height: 44px;
+  border-radius: 24px;
+  background-color: ${P.palette.primaryLight};
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+`;
 
 export const Title = styled.div`
   width: 100%;
