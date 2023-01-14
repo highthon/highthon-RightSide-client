@@ -4,9 +4,8 @@ import * as LoginStyle from "./Login.style";
 
 const Login = () => {
   const [userData, setUserData] = useState({
-    id: "",
-    pw: "",
-    name: "",
+    account_id: "",
+    password: "",
   });
 
   const onChange = (e) => {
@@ -27,16 +26,19 @@ const Login = () => {
   };
   return (
     <LoginStyle.LoginContainer>
-      <LoginStyle.UserDataInput type="text" name="id" onChange={onChange} />
-      <LoginStyle.UserDataInput type="text" name="pw" onChange={onChange} />
       <LoginStyle.UserDataInput
-        type="password"
-        name="name"
+        type="text"
+        name="account_id"
         onChange={onChange}
       />
-      <LoginStyle.UserJoinSubmitBtn onClick={postLogin}>
+      <LoginStyle.UserDataInput
+        type="password"
+        name="password"
+        onChange={onChange}
+      />
+      <LoginStyle.UserLoginSubmitBtn onClick={postLogin}>
         회원가입
-      </LoginStyle.UserJoinSubmitBtn>
+      </LoginStyle.UserLoginSubmitBtn>
     </LoginStyle.LoginContainer>
   );
 };

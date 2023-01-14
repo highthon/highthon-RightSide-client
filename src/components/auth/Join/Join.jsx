@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 
 const Join = () => {
   const [userData, setUserData] = useState({
-    id: "",
-    pw: "",
+    account_id: "",
+    password: "",
     name: "",
   });
 
