@@ -37,7 +37,7 @@ const Login = () => {
         onChange={onChange}
       />
       <LoginStyle.UserLoginSubmitBtn onClick={postLogin}>
-        회원가입
+        로그인
       </LoginStyle.UserLoginSubmitBtn>
     </LoginStyle.LoginContainer>
   );

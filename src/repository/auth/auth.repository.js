@@ -1,13 +1,13 @@
-import axios from "axios";
+import customAxios from "../../lib/axios/customAxios";
 
 class joinRepository {
   PostJoinData(userData) {
-    const { data } = axios.post("/user", userData);
+    const { data } = customAxios.post("/user", userData);
     return data;
   }
 
   PostLogin(userData) {
-    const { data } = axios.post("/user/auth", userData);
+    const { data } = customAxios.post("/user/auth", userData);
   }
 }
 

@@ -1,15 +1,18 @@
-import Main from "./components/Main";
-import { ToastContainer } from "react-toastify";
-import Join from "./components/auth/Join/Join";
-import NoticeWrite from "./components/Notice/NoticeWrite/NoticeWrite";
-import NoticeEdit from "./components/Notice/NoticeEdit";
+import styled from "styled-components";
+import Router from "./components/Router/Router";
 
 function App() {
   return (
-    <>
-      <NoticeEdit />
-    </>
+    <AppContainer>
+      <Router />
+    </AppContainer>
+
   );
 }
+
+const AppContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+`;
 
 export default App;
