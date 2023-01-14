@@ -7,7 +7,8 @@ class joinRepository {
   }
 
   PostLogin(userData) {
-    const { data } = customAxios.post("/user/auth", userData);
+    const data = customAxios.post("/user/auth", userData);
+    return data;
   }
 }
 

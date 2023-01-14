@@ -17,9 +17,9 @@ export const Inner = styled.div`
   align-items: center;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.img`
+  width: 150px;
   font-weight: 700;
-  font-size: 40px;
   line-height: 64px;
   color: #000;
 `;

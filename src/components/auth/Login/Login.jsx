@@ -23,10 +23,11 @@ const Login = () => {
       return;
     }
 
-    usePostLoginMutation.mutateAsync(userData, {
-      onSuccess: (token) => {
+    usePostLoginMutation.mutate(userData, {
+      onSuccess: ({ data }) => {
+        console.log(data.access_token);
         window.alert("로그인 성공");
-        cookie.setCookie("access-token", token);
+        cookie.setCookie("access-token", data.access_token);
         navigate("/");
       },
       onError: () => {

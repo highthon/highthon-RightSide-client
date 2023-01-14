@@ -10,10 +10,9 @@ class noticeRepository {
     const { data } = customAxios.patch(`/post/${postId}`, postData);
   }
 
-  GetNotice(tag) {
-    const { data } = customAxios.get(`/post/tag?tag=${tag}`);
-    return data;
-  }
+  // GetNotice(tag) {
+  //   return data;
+  // }
 }
 
 export default new noticeRepository();

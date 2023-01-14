@@ -22,24 +22,18 @@ const BuyNotice = () => {
       </S.NoticeHeader>
       {/* 게시판 프레임 */}
       <S.NoticeFrame>
-        <NoticeList
-          title="제목 제목 제목 제목"
-          writer="김석진"
-          date="2023-01-14"
-          participant="1,643,248"
-        />
-        <NoticeList
-          title="제목 제목 제목 제목"
-          writer="김석진"
-          date="2023-01-14"
-          participant="1,643,248"
-        />
-        <NoticeList
-          title="제목 제목 제목 제목"
-          writer="김석진"
-          date="2023-01-14"
-          participant="1,643,248"
-        />
+        {/* {data &&
+          data.map((item) => {
+            console.log(item);
+            return (
+              <NoticeList
+              onClick={()=> window.open(`${link}`)}
+                title={item.title}
+                writer={item.user.user_name}
+                participant={item.join_count}
+              />
+            );
+          })} */}
       </S.NoticeFrame>
     </>
   );
