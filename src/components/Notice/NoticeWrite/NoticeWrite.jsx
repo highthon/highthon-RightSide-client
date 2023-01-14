@@ -50,6 +50,24 @@ const NoticeWrite = () => {
             />
           </S.InputFrame>
           <S.InputFrame>
+            <S.Title>태그</S.Title>
+            <S.TitleInput
+              name="tags"
+              height="54px"
+              onChange={onChange}
+              placeholder="BOYCOTT, BUY를 입력해주세요."
+            />
+          </S.InputFrame>
+          <S.InputFrame>
+            <S.Title>링크</S.Title>
+            <S.TitleInput
+              name="link"
+              height="54px"
+              onChange={onChange}
+              placeholder="링크를 입력해주세요."
+            />
+          </S.InputFrame>
+          <S.InputFrame>
             <S.Title>내용</S.Title>
             <S.ContentInput
               name="content"
