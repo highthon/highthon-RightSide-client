@@ -153,4 +153,21 @@ export const palette = {
   indigo,
   random,
   main: "#FF9169",
+
+  // primary
+  primaryLight: "#9ED66A",
+  primaryHover: "#70B72E",
+  primaryDim: "#E1EEC7",
+
+  // secondary
+  secondaryLight: "#EE795F",
+  secondaryHover: "#C75238",
+  secondaryDim: "#FFCBBF",
+
+  // Text
+  bodyText: "#686868",
+  subTitleText: "#2E2E2E",
+  disabledText: "#9E9E9E",
+  hr: "#E6E6E6",
+  black: "#333333",
 };
