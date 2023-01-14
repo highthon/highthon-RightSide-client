@@ -6,6 +6,7 @@ const GlobalStyled = createGlobalStyle`
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Pretendard-Regular' !important;
     }
     a{
       text-decoration: none;
@@ -29,3 +30,5 @@ const GlobalStyled = createGlobalStyle`
 
     ${reset}
 `;
+
+export default GlobalStyled;
