@@ -170,4 +170,8 @@ export const palette = {
   disabledText: "#9E9E9E",
   hr: "#E6E6E6",
   black: "#333333",
+
+  secondaryBtnBg: "#FAFBFC",
+  secondaryBtnStroke: "#D1D2D3",
+  disabledBtnBg: "#DDDDDD",
 };

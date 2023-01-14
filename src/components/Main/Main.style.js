@@ -14,7 +14,7 @@ export const SearchFrame = styled.div`
   display: flex;
   justify-content: center;
   height: 119px;
-  background-color: ${P.palette.primaryDim};
+  background-color: ${P.palette.primaryLight};
   width: 100%;
 `;
 
@@ -27,8 +27,6 @@ export const SearchBox = styled.form`
   height: 48px;
   border-radius: 24px;
   padding-right: 24px;
-
-  border: 1px solid black;
 
   margin-top: 36px;
   background-color: #fff;
@@ -54,6 +52,8 @@ export const TabBar = styled.div`
 `;
 
 export const TabBtn = styled.button`
+  text-align: center;
+
   width: 50%;
   height: 60.5px;
 
@@ -61,6 +61,49 @@ export const TabBtn = styled.button`
   font-size: 20px;
   line-height: 36px;
 
-  background-color: ${(props) => props.backGroundColor};
+  background: ${(props) => props.backGroundColor};
   border-radius: ${(props) => props.borderRadius};
+`;
+
+// notice board
+
+export const Title = styled.div`
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 36px;
+  padding: 45px 0px;
+`;
+
+export const NoticeHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1180px;
+  height: 60px;
+  border-radius: 16px 16px 0px 0px;
+  background-color: ${P.palette.secondaryBtnBg};
+  border: 1px solid ${P.palette.hr};
+  padding: 0px 55px;
+`;
+
+export const NoticeInner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 525px;
+`;
+
+export const NoticeItem = styled.div`
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: ${P.palette.subTitleText};
+`;
+
+export const NoticeFrame = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
