@@ -1,12 +1,13 @@
-import * as S from "./NoticeBoard.style.js";
-import NoticeList from "../NoticeList/NoticeList.jsx";
+import * as S from "./BuyNotice.style.js";
 import { Link } from "react-router-dom";
-const NoticeBoard = () => {
+import NoticeList from "../../NoticeList/NoticeList.jsx";
+
+const BuyNotice = () => {
   return (
     <>
       {/* 게시판 */}
       <S.MiddleFrame>
-        <S.Title>불매 운동에 참여해 보세요!</S.Title>
+        <S.Title>가치 있는 소비 같이 해요!</S.Title>
         <Link to="/write">
           <S.AddBtn>글쓰기</S.AddBtn>
         </Link>
@@ -16,7 +17,7 @@ const NoticeBoard = () => {
         <S.NoticeInner>
           <S.NoticeItem>작성자</S.NoticeItem>
           <S.NoticeItem>작성일</S.NoticeItem>
-          <S.NoticeItem>동참자 수</S.NoticeItem>
+          <S.NoticeItem>구매자 분</S.NoticeItem>
         </S.NoticeInner>
       </S.NoticeHeader>
       {/* 게시판 프레임 */}
@@ -44,4 +45,4 @@ const NoticeBoard = () => {
   );
 };
 
-export default NoticeBoard;
+export default BuyNotice;

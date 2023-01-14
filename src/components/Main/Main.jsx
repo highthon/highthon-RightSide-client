@@ -6,7 +6,9 @@ import searchSvg from "../../assets/img/search.svg";
 import { useState } from "react";
 import * as P from "../../shared/styles/palette.style";
 import { Link, Routes, Route } from "react-router-dom";
-import NoticeBoarad from "../Notice/NoticeBoard";
+import NotBuyNotice from "../Notice/NoticeBoard/NotBuyNotice";
+import BuyNotice from "../Notice/NoticeBoard/BuyNotice";
+
 import NoticeWrite from "../Notice/NoticeWrite";
 
 const Main = () => {
@@ -26,23 +28,28 @@ const Main = () => {
         </S.SearchFrame>
         {/* 탭 바 */}
         <S.TabBar>
-          <S.TabBtn
-            backGroundColor={tabClick ? P.palette.primaryLight : "#fff"}
-            borderRadius="0px 0px 30px 0px"
-            onClick={() => setTabClick(true)}
-          >
-            불매
-          </S.TabBtn>
-          <S.TabBtn
-            backGroundColor={!tabClick ? P.palette.primaryLight : "#fff"}
-            borderRadius="0px 0px 0px 30px"
-            onClick={() => setTabClick(false)}
-          >
-            구매
-          </S.TabBtn>
+          <Link to="/">
+            <S.TabBtn
+              backGroundColor={tabClick ? P.palette.primaryLight : "#fff"}
+              borderRadius="0px 0px 30px 0px"
+              onClick={() => setTabClick(true)}
+            >
+              불매
+            </S.TabBtn>
+          </Link>
+          <Link to="/buy">
+            <S.TabBtn
+              backGroundColor={!tabClick ? P.palette.primaryLight : "#fff"}
+              borderRadius="0px 0px 0px 30px"
+              onClick={() => setTabClick(false)}
+            >
+              구매
+            </S.TabBtn>
+          </Link>
         </S.TabBar>
         <Routes>
-          <Route path="/" element={<NoticeBoarad />} />
+          <Route path="/" element={<NotBuyNotice />} />
+          <Route path="/buy" element={<BuyNotice />} />
           <Route path="/write" element={<NoticeWrite />} />
         </Routes>
       </S.Main>

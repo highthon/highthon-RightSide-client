@@ -10,6 +10,10 @@ export const NoticeList = styled.div`
   width: 1180px;
   border-bottom: 1px solid ${P.palette.hr};
   height: 72px;
+  &:hover {
+    background-color: #e2e2e2;
+    cursor: pointer;
+  }
 `;
 
 export const NoticeInner = styled.div`
