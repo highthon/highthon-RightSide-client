@@ -1,6 +1,6 @@
 import * as S from "./Main.style.js";
 import Header from "../Header";
-import NoticeList from "../NoticeList";
+import NoticeList from "../Notice/NoticeList";
 
 import xSvg from "../../assets/img/x.svg";
 import searchSvg from "../../assets/img/search.svg";

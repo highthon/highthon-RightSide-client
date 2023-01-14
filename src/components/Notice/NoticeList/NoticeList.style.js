@@ -1,6 +1,6 @@
 /* your css code */
 import styled from "styled-components";
-import * as P from "../../shared/styles/palette.style";
+import * as P from "../../../shared/styles/palette.style";
 
 export const NoticeList = styled.div`
   padding: 0px 55px;
