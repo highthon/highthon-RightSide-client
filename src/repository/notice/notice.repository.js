@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import customAxios from "../../lib/axios/customAxios";
 
 class noticeRepository {
@@ -8,6 +9,13 @@ class noticeRepository {
 
   PostEditNotice(postData, postId) {
     const { data } = customAxios.patch(`/post/${postId}`, postData);
+  }
+
+  async GetNotice(tag) {
+    const data = await customAxios.get(
+      `/post/tag?tag=${tag === "/" ? "BOYCOTT" : "BUY"}`
+    );
+    return data;
   }
 }
 

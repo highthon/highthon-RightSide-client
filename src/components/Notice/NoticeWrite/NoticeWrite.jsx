@@ -3,6 +3,7 @@ import * as S from "./NoticeWrite.style.js";
 import noticeRepository from "../../../repository/notice/notice.repository";
 import { usePostWrite } from "../../../query/notice/postWrite.query";
 import { useNavigate } from "react-router-dom";
+import Header from "../../Header/Header.jsx";
 
 const NoticeWrite = () => {
   const { usePostWriteMutation } = usePostWrite();
@@ -32,54 +33,57 @@ const NoticeWrite = () => {
   };
 
   return (
-    <S.NoticeWrite>
-      <S.NoticeModal>
-        {/* 모달 헤더 */}
-        <S.ModalHeader>
-          <S.Title>제목 및 내용 입력</S.Title>
-        </S.ModalHeader>
-        {/* 모달 컨텐트 */}
-        <S.ModalContent>
-          <S.InputFrame>
-            <S.Title>제목</S.Title>
-            <S.TitleInput
-              name="title"
-              height="54px"
-              onChange={onChange}
-              placeholder="제목을 입력해주세요."
-            />
-          </S.InputFrame>
-          <S.InputFrame>
-            <S.Title>태그</S.Title>
-            <S.TitleInput
-              name="tag"
-              height="54px"
-              onChange={onChange}
-              placeholder="BOYCOTT, BUY를 입력해주세요."
-            />
-          </S.InputFrame>
-          <S.InputFrame>
-            <S.Title>링크</S.Title>
-            <S.TitleInput
-              name="link"
-              height="54px"
-              onChange={onChange}
-              placeholder="링크를 입력해주세요."
-            />
-          </S.InputFrame>
-          <S.InputFrame>
-            <S.Title>내용</S.Title>
-            <S.ContentInput
-              name="content"
-              height="250px"
-              onChange={onChange}
-              placeholder="내용을 입력해주세요."
-            />
-          </S.InputFrame>
-          <S.SubmitButton onClick={postSubmit}>글 쓰기</S.SubmitButton>
-        </S.ModalContent>
-      </S.NoticeModal>
-    </S.NoticeWrite>
+    <>
+      <Header />
+      <S.NoticeWrite>
+        <S.NoticeModal>
+          {/* 모달 헤더 */}
+          <S.ModalHeader>
+            <S.Title>제목 및 내용 입력</S.Title>
+          </S.ModalHeader>
+          {/* 모달 컨텐트 */}
+          <S.ModalContent>
+            <S.InputFrame>
+              <S.Title>제목</S.Title>
+              <S.TitleInput
+                name="title"
+                height="54px"
+                onChange={onChange}
+                placeholder="제목을 입력해주세요."
+              />
+            </S.InputFrame>
+            <S.InputFrame>
+              <S.Title>태그</S.Title>
+              <S.TitleInput
+                name="tag"
+                height="54px"
+                onChange={onChange}
+                placeholder="BOYCOTT, BUY를 입력해주세요."
+              />
+            </S.InputFrame>
+            <S.InputFrame>
+              <S.Title>링크</S.Title>
+              <S.TitleInput
+                name="link"
+                height="54px"
+                onChange={onChange}
+                placeholder="링크를 입력해주세요."
+              />
+            </S.InputFrame>
+            <S.InputFrame>
+              <S.Title>내용</S.Title>
+              <S.ContentInput
+                name="content"
+                height="250px"
+                onChange={onChange}
+                placeholder="내용을 입력해주세요."
+              />
+            </S.InputFrame>
+            <S.SubmitButton onClick={postSubmit}>글 쓰기</S.SubmitButton>
+          </S.ModalContent>
+        </S.NoticeModal>
+      </S.NoticeWrite>
+    </>
   );
 };
 

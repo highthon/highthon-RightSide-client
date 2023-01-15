@@ -16,12 +16,24 @@ export const Inner = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+export const Contents = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+
+export const MyPage = styled.button`
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000;
+`;
 
 export const Logo = styled.img`
   width: 150px;
   font-weight: 700;
   line-height: 64px;
   color: #000;
+  cursor: pointer;
 `;
 
 export const Login = styled.button`

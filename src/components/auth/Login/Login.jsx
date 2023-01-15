@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import cookie from "../../../lib/cookie/cookie";
 import { usePostLogin } from "../../../query/auth/posrLogin.query";
+import authRepository from "../../../repository/auth/auth.repository";
 import * as LoginStyle from "./Login.style";
 
 const Login = () => {
@@ -22,17 +23,17 @@ const Login = () => {
       window.alert("정보를 입력해주시기 바랍니다.");
       return;
     }
+    const { data } = authRepository.PostLogin(userData);
+    navigate("/");
+    window.alert("로그인 성공");
 
-    usePostLoginMutation.mutate(userData, {
-      onSuccess: ({ data }) => {
-        window.alert("로그인 성공");
-        cookie.setCookie("access-token", data.access_token);
-        navigate("/");
-      },
-      onError: () => {
-        window.alert("로그인 오류 다시 시도 해 주세요.");
-      },
-    });
+    // usePostLoginMutation.mutate(userData, {
+    //   onSuccess: ({ data }) => {
+    //   },
+    //   onError: () => {
+    //     window.alert("로그인 오류 다시 시도 해 주세요.");
+    //   },
+    // });
   };
   return (
     <LoginStyle.LoginContainer>

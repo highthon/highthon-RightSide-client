@@ -24,6 +24,10 @@ export const NoticeInner = styled.div`
 `;
 
 export const NoticeItem = styled.div`
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-weight: 500;
   font-size: 18px;
   line-height: 28px;

@@ -6,15 +6,17 @@ import customAxios from "../../../../lib/axios/customAxios.js";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { noticePostId } from "../../../../store/reducer";
+import noticeRepository from "../../../../repository/notice/notice.repository.js";
 const NotBuyNotice = () => {
   const [noticeData, setNoticeData] = useState();
-  const { pathname } = useLocation();
-  (async () => {
-    const { data } = await customAxios.get(
-      `/post/tag?tag=${pathname === "/" ? "BOYCOTT" : "BUY"}`
-    );
-    setNoticeData(data.post_list);
-  })();
+
+  const pathname = useLocation().pathname;
+
+  useEffect(() => {
+    const { data } = noticeRepository.GetNotice(pathname);
+    setNoticeData(data);
+  }, [pathname]);
+
   return (
     <>
       {/* 게시판 */}
@@ -39,7 +41,6 @@ const NotBuyNotice = () => {
             return (
               <NoticeList
                 key={idx}
-                post_id={item.post_id}
                 title={item.title}
                 writer={item.user.user_name}
                 participant={item.join_count}

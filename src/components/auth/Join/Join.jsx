@@ -28,16 +28,17 @@ const Join = () => {
       window.alert("정보를 입력해주시기 바랍니다.");
       return;
     }
+    authRepository.PostJoinData(userData);
+    window.alert("회원가입 성공");
+    navigate("/login");
 
-    usePostJoinMutation.mutateAsync(userData, {
-      onSuccess: () => {
-        window.alert("회원가입 성공");
-        navigate("/login");
-      },
-      onError: () => {
-        window.alert("회원가입 오류 다시 시도 해 주세요.");
-      },
-    });
+    // usePostJoinMutation.mutateAsync(userData, {
+    //   onSuccess: () => {
+    //   },
+    //   onError: () => {
+    //     window.alert("회원가입 오류 다시 시도 해 주세요.");
+    //   },
+    // });
   };
   return (
     <JoinStyle.JoinContainer>
